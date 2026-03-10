@@ -13,9 +13,34 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Inicio')),
       body: Center(
-        child: Text(
-          'Bienvenido, $correo',
-          style: const TextStyle(fontSize: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Bienvenido, $correo',
+              style: const TextStyle(fontSize: 20),
+            ),
+
+            const SizedBox(height: 20),
+
+            ElevatedButton.icon(
+              icon: const Icon(Icons.people),
+              label: const Text('Ver usuarios'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/usuarios'); // Navega a la pantalla de usuarios de la API.
+              },
+            ),
+
+            const SizedBox(height: 12),
+
+            ElevatedButton.icon(
+              icon: const Icon(Icons.movie),
+              label: const Text('Ver catálogo de películas'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/peliculas'); // Navega a la pantalla del catálogo de películas.
+              },
+            ),
+          ],
         ),
       ),
     );
